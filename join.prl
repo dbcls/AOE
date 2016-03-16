@@ -1,0 +1,30 @@
+
+#STDIN: experiment
+my($file1, $file2) = @ARGV;
+#sample
+open(FILE, $file1) or die;
+while(<FILE>) {
+	chomp;
+	my($xrs,$sam,$tax,$org) = split(/\t/);
+	$sample{$sam} = "$xrs\t$tax\t$org";
+}
+close FILE;
+
+#study
+open(FILE, $file2) or die;
+while(<FILE>) {
+	chomp;
+	my($prj,$gse,$xrp,$title) = split(/\t/);
+	$study{$prj} = "$gse\t$xrp\t$title";
+}
+close FILE;
+
+while(<STDIN>) {
+	chomp;
+	my($xrx,$prj,$sam,$ngs) = split(/\t/);
+	print "$xrx\t$prj\t$sam\t$ngs\t$sample{$sam}\t$study{$prj}\n";
+}
+
+
+
+

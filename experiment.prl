@@ -1,0 +1,40 @@
+
+#script to extract needed fileds from json metadata (type: experiment)
+print "xRX\tPRJ\tSAMx\tSequencer\n";
+while(<>) {
+	chomp;
+	next unless(/metadata/);
+	foreach $metadata (split(/\<\/EXPERIMENT\>/)) {
+	#xRX
+		if($metadata =~ /PRIMARY_ID\>([^\<]+)\<\/PRIMARY_ID/) {
+			print "$1\t";
+		} elsif($metadata =~ /(\wRX\d+)/) {
+			print "$1\t";
+		} else {
+			print "\t";
+		} 
+	#BioProject
+		if($metadata =~ /EXTERNAL_ID namespace=\"\"BioProject\"\"\>([^\<]+)\</) {
+			print "$1\t";
+		} elsif($metadata =~ /(PRJ[NED]\w\d+)/) {
+			print "$1\t";
+		} else {
+			print "\t";
+		}
+	#BioSample
+		if($metadata =~ /EXTERNAL_ID namespace=\"\"BioSample\"\"\>([^\<]+)\</) {
+			print "$1\t";
+		} elsif($metadata =~ /(SAM[NED]\w\d+)/) {
+			print "$1\t";
+		} else {
+			print "\t";
+		}
+	#Sequencer
+		if($metadata =~ /INSTRUMENT_MODEL\>([^\<]+)\</) {
+			print "$1\t";
+		} else {
+			print "\t";
+		}
+		print "\n";
+	}
+}

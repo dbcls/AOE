@@ -1,0 +1,17 @@
+
+#script to extract "BioprojectID GSE_ID" from bioproject XML at NCBI
+#STDIN: bioproject.xml
+while(<STDIN>) {
+	chomp;
+	#ArchiveID accession="PRJNA163103" archive="NCBI" id="163103"/>
+	$bioprj = $1 if(/ArchiveID\saccession=\"(PRJ\w+\d+)\"/);
+	$link = 1 if(/\<ExternalLink/);
+	$link = 0 if(/\<\/ExternalLink/);
+	$gse    = $1 if($link == 1 && /\<ID\>(GSE\d+)\<\/ID\>/);
+	#<CenterID center="GEO" id="0">GSE37735</CenterID>
+	if(/\<\/Package\>/) { 
+		print "$bioprj\t$gse\n" if($gse ne '');
+		$bioprj = '';
+		$gse = '';
+	}
+}
