@@ -1,5 +1,7 @@
 
-#script to extract "BioprojectID GSE_ID" from bioproject XML at NCBI
+# extract "BioprojectID GSE_ID" from bioproject XML at NCBI
+# add BioProjectID to GEO(E-GEOD-xxxxx) entries
+
 #STDIN: bioproject.xml
 while(<STDIN>) {
 	chomp;
