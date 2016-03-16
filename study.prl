@@ -15,22 +15,15 @@ while(<STDIN>) {
 	#GSE,xRP
 	if(/STUDY\scenter_name=([^\>]+)\>/) {
 		$str = $1;
-		print "$1" if($str =~ /(GSE\d+)/); #GSE
-		print "\t";
-		print "$1" if($str =~ /([DES]RP\d+)/); #xRP
-		print "\t";
 	} else {
-		if(/\<EXTERNAL_ID\snamespace=\"\"GEO\"\"\>([^\<]+)/) {
-			print "$1\t\t";
-		} else {
-			print "\t\t";
-		}
+		$str = $_;
 	}
+	print "$1" if($str =~ /(GSE\d+)/); #GSE
+	print "\t";
+	print "$1" if($str =~ /([DES]RP\d+)/); #xRP
+	print "\t";
 	#Title
-	if(/STUDY_TITLE\>([^\<]+)\<\/STUDY_TITLE/) {
-		print "$1\t";
-	} else {
-		print "\t";
-	} 
+	print "$1" if(/STUDY_TITLE\>([^\<]+)\<\/STUDY_TITLE/);
+	
 	print "\n";
 }
