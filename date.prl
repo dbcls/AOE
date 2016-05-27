@@ -4,7 +4,7 @@ while(<STDIN>) {
 	chomp;
 	$flag = 1 if(/\"metadata\":/);
 	if($flag) {
-		print "$1\t" if(/([DES]R[ASPR]\d+)/);
+		print "$1\t" if(/([DES]R[AS]\d+)/);
 		print "$1\t" if(/\"(\d{4}+\-\d\d\-\d\d)/);
 	}
 	if(/\}/) {
