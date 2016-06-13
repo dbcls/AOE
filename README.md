@@ -15,3 +15,5 @@ Scripts to extract transcriptome sequencing records from Sequence Read Archive (
 - Extract BioProjectID vs GSE ID table from Bioproject XML
 	- bioproject.prl
 
+- Extract date information
+	- date.prl
