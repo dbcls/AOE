@@ -17,3 +17,6 @@ Scripts to extract transcriptome sequencing records from Sequence Read Archive (
 
 - Extract date information
 	- date.prl
+
+The data extracted from SRA will be merged with current version of AOE index(AOE1).
+
