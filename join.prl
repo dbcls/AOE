@@ -1,8 +1,12 @@
 
+#join 3files for AOE2.0 
 #STDIN: experiment
 my($file1, $file2) = @ARGV;
+if(($file1 eq '') || ($file2 eq '')) {
+	die "Usage: perl join.prl sample.txt study.txt < experiment.txt";
+}
 #sample
-open(FILE, $file1) or die;
+open(FILE, $file1) or die "$file1:$!\n";
 while(<FILE>) {
 	chomp;
 	my($xrs,$sam,$tax,$org) = split(/\t/);
@@ -11,7 +15,7 @@ while(<FILE>) {
 close FILE;
 
 #study
-open(FILE, $file2) or die;
+open(FILE, $file2) or die "$file2:$!\n";
 while(<FILE>) {
 	chomp;
 	my($prj,$gse,$xrp,$title) = split(/\t/);
@@ -19,10 +23,12 @@ while(<FILE>) {
 }
 close FILE;
 
+#experiment
 while(<STDIN>) {
 	chomp;
 	my($xrx,$prj,$sam,$ngs) = split(/\t/);
-	print "$xrx\t$prj\t$sam\t$ngs\t$sample{$sam}\t$study{$prj}\n";
+	#print "$xrx\t$prj\t$sam\t$ngs\t$sample{$sam}\t$study{$prj}\n";
+	print "$prj\t$sam\t$ngs\t$sample{$sam}\t$study{$prj}\n";
 }
 
 

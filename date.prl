@@ -1,14 +1,27 @@
 
 # script to extract needed values (data vs SRA IDs_ from metadata json (table: sra_accessions)
+#
+# date: 
+# modified
+# published <- use this date!
+# received
+my $rs = '';
+my $ra = '';
+my $date = '';
+print "xRA\txRS\t$modified\tpublished\treceived\n"; #header
 while(<STDIN>) {
 	chomp;
 	$flag = 1 if(/\"metadata\":/);
 	if($flag) {
-		print "$1\t" if(/([DES]R[AS]\d+)/);
-		print "$1\t" if(/\"(\d{4}+\-\d\d\-\d\d)/);
+		$rs = $1 if(/([DES]RS\d+)/);
+		$ra = $1 if(/([DES]RA\d+)/);
+		$date .= "$1\t" if(/\"(\d{4}+\-\d\d\-\d\d)/);
 	}
 	if(/\}/) {
-		print "\n";
+		print "$ra\t$rs\t$date\n" unless($rs eq '');
+		$rs = "";
+		$ra = "";
+		$date = "";
 		$flag = 0;
 	}
 }
