@@ -8,14 +8,14 @@
 my $rs = '';
 my $ra = '';
 my $date = '';
-print "xRA\txRS\t$modified\tpublished\treceived\n"; #header
+print "xRA\txRS\tmodified\tpublished\treceived\n"; #header
 while(<STDIN>) {
 	chomp;
 	$flag = 1 if(/\"metadata\":/);
 	if($flag) {
 		$rs = $1 if(/([DES]RS\d+)/);
 		$ra = $1 if(/([DES]RA\d+)/);
-		$date .= "$1\t" if(/\"(\d{4}+\-\d\d\-\d\d)/);
+		$date .= "$1\t" if(/\"(\d{4}+\-\d\d\-\d\d)T/);
 	}
 	if(/\}/) {
 		print "$ra\t$rs\t$date\n" unless($rs eq '');
