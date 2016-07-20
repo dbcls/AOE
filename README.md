@@ -8,17 +8,14 @@ Scripts to extract transcriptome sequencing records from Sequence Read Archive (
 	- `experiment.prl`
 - Join them
 	- `join.prl`
-
 - Generate list of distinct Run IDs with corresponding Experiment ID
 	- `experiment-run.prl`
-
 - Extract BioProjectID vs GSE ID table from Bioproject XML
 	- `bioproject.prl`
-
 - Extract date information
 	- `date.prl`
 
-The data extracted from SRA will be merged with current version of AOE(AOE1) from ArrayExpress.
+The data extracted from SRA will be merged with current version of AOE(AOE1).
 
 Output Example:
 
