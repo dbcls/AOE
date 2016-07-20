@@ -1,24 +1,24 @@
-#AOE2.0
+#All of gene expression version 2 (AOE2)
 
-Scripts to extract transcriptome sequencing records from Sequence Read Archive (SRA).
+Scripts to extract transcriptome sequencing records from Sequence Read Archive (SRA). Mainly index RNA-seq data in SRA, but not in ArrayExpress.
 
 - Extract IDs from metadata in SRA
-	- study.prl
-	- sample.prl
-	- experiment.prl
+	- `study.prl`
+	- `sample.prl`
+	- `experiment.prl`
 - Join them
-	- join.prl
+	- `join.prl`
 
 - Generate list of distinct Run IDs with corresponding Experiment ID
-	- experiment-run.prl
+	- `experiment-run.prl`
 
 - Extract BioProjectID vs GSE ID table from Bioproject XML
-	- bioproject.prl
+	- `bioproject.prl`
 
 - Extract date information
-	- date.prl
+	- `date.prl`
 
-The data extracted from SRA will be merged with current version of AOE index(AOE1).
+The data extracted from SRA will be merged with current version of AOE(AOE1) from ArrayExpress.
 
 Output Example:
 
