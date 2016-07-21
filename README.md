@@ -1,6 +1,8 @@
 #All of gene expression version 2 (AOE2)
 
-Scripts to extract transcriptome sequencing records from Sequence Read Archive (SRA). Mainly index RNA-seq data in SRA, but not in ArrayExpress.
+Scripts to extract transcriptome sequencing records from Sequence Read Archive (SRA). 
+Mainly index RNA-seq data in SRA, but not in ArrayExpress.
+SRA data is cleaned and maintained under DBCLS SRA project.
 
 - Extract IDs from metadata in SRA
 	- `study.prl`
@@ -15,7 +17,7 @@ Scripts to extract transcriptome sequencing records from Sequence Read Archive (
 - Extract date information
 	- `date.prl`
 
-The data extracted from SRA will be merged with current version of AOE(AOE1).
+Data extracted from SRA will be merged with current version of AOE(AOE1).
 
 Output Example:
 
