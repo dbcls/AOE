@@ -1,4 +1,4 @@
-#All of gene expression version 2 (AOE2)
+# All of gene expression version 2 (AOE2)
 
 Scripts to extract transcriptome sequencing records from Sequence Read Archive (SRA). 
 Mainly index RNA-seq data in SRA, but not in ArrayExpress.
