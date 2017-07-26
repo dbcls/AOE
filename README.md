@@ -6,6 +6,8 @@ SRA data is cleaned and maintained under DBCLS SRA project.
 
 Data extracted from SRA will be merged with current version of AOE(AOE1).
 
+- `01xRX2instrument_model.pl` Extract Instrument_model from SRA Experiment data.
+
 Output Example:
 
 |  ID |ProjID|AEID| Description | Date | ArrayType | ArrayGroup | Technology | Instrument | NGSGroup | Organisms | Rep_organism  |
