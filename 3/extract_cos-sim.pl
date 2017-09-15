@@ -1,6 +1,6 @@
 #!/usr/bin/perl
-# simple code to extract cos-sim values 
-# usage: cat result_sample.txt| perl extract_xRR.pl SRR771372 |sort -k2 -rn|less
+# simple code to extract cos-sim values
+# usage: cat result_sample.txt| perl extract_cos-sim.pl SRR771372 |sort -k2 -rn|less
 
 my $id = shift(@ARGV);
 my $i = 0;
