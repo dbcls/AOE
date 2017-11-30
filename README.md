@@ -1,10 +1,10 @@
 # All of gene expression version 2 (AOE2)
 
-Scripts to extract transcriptome sequencing records from Sequence Read Archive (SRA). 
-Mainly index RNA-seq data in SRA, but not in ArrayExpress.
-SRA data is cleaned and maintained under DBCLS SRA project.
+All of gene expression (AOE) has been an index for public transcriptome database. 
 
+The version 2 of AOE includes scripts to extract transcriptome sequencing records from Sequence Read Archive (SRA). 
 Data extracted from SRA will be merged with current version of AOE(AOE1).
+API for SRA data by DBCLS SRA project is fully used to generate the data.
 
 - `01xRX2instrument_model.pl` Extract Instrument_model from SRA Experiment data.
 
