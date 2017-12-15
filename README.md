@@ -6,7 +6,9 @@ The version 2 of AOE includes scripts to extract transcriptome sequencing record
 Data extracted from SRA will be merged with current version of AOE(AOE1).
 API for SRA data by DBCLS SRA project is fully used to generate the data.
 
-Currently transcriptome data from NCBI GEO is not included in EBI ArrayExpress and we plan to integrate the data from GEO will  into AOE utilizing DBCLS SRA API.
+Currently transcriptome data from NCBI GEO is not included in EBI ArrayExpress (since 2017), and we are going to integrate the data from GEO into AOE utilizing DBCLS SRA API.
+
+- `00getprojsample.pl` Extract GEO associated SRA/BioProject/BioSample data from DBCLS SRA API.
 
 - `01xRX2instrument_model.pl` Extract Instrument_model from SRA Experiment data.
 
