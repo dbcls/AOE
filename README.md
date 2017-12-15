@@ -19,6 +19,6 @@ Output Example:
 |1|NA|  E-DORD-69 | Translation profiling of Arabidopsis cell cultures exposed to elevated temperature and high salinity | 2010-07-07 | Agilent Arabidopsis 3 Oligo Microarray 4x44K 015059 G2519F (Gene ID version)(A-DORD-1)[24]  | Agilent | array assay | NA | NA | Arabidopsis thaliana[24]  | Arabidopsis thaliana  |
 
 ## From GEO (DBCLS SRA API)
-- `00getprojsample.pl` Extract GEO associated SRA/BioProject/BioSample data from DBCLS SRA API.
-− `01GEOjson2AOE.pl` Make subset of AOE tab file from extracted json file(s).
+- `00getprojsample.pl` Extract GEO associated SRA/BioProject/BioSample data from DBCLS SRA API. 
+− `01GEOjson2AOE.pl` Make subset of AOE tab file from extracted json file(s). 
 - `00getlistofxRX.pl` Get metadata from D/E/SRX (Experiment). 
