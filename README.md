@@ -21,3 +21,4 @@ Output Example:
 ## From GEO (DBCLS SRA API)
 - `00getprojsample.pl` Extract GEO associated SRA/BioProject/BioSample data from DBCLS SRA API.
 − `01GEOjson2AOE.pl` Make subset of AOE tab file from extracted json file(s).
+- `00getlistofxRX.pl` Get metadata from D/E/SRX (Experiment). 
