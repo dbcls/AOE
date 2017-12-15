@@ -14,10 +14,10 @@ while(<FILE>) {
 }
 close FILE;
 
-open(FILE, "curl \"http://$ip/bioproject?external_db=GEO\" |") or die;
+open(FILE, "curl -s \"http://$ip/api/bioproject?external_db=GEO\" |") or die;
 while(<FILE>) {
-	chomp;
-	$prjgsenum = $1 if(/(\d+) items/);
+        chomp;
+        $prjgsenum = $1 if(/(\d+) items/);
 }
 close FILE;
 
@@ -27,10 +27,14 @@ print "$prjgsenum2\n";
 
 # iteration
 foreach my $i (0..$prjgsenum2) {
-	$start = $i*$rows;
-	print STDERR "$i..";
-	system("curl \"http://$ip/bioproject?external_db=GEO&start=$start&rows=$rows&data_type=full\"  >> $prj2gse");
-	sleep 1;
+        $start = $i*$rows;
+        print STDERR "$i..";
+        open(FILE, "curl -s \"http://$ip/api/sra/experiment?library_strategy=RNA-Seq&start=$start&rows=$rows&data_type=full\" |") or die;
+        open(FILE, "curl -s \"http://$ip/api/bioproject?external_db=GEO&start=$start&rows=$rows&data_type=full\" |") or die;
+        # after the scraping, '\n' should be inserted by running the following command
+        while(<FILE>) {
+                s/\{\"Package/\n\{\"Package/g;
+                print "$_\n";
+        }
+        close FILE;
 }
-# after the scraping, '\n' should be inserted by running the following command
-# perl -i~ -pe 's/\{\"Package/\n\{\"Package/g' prj2gse.json
