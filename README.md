@@ -22,3 +22,5 @@ Output Example:
 - `00getprojsample.pl` Extract GEO associated SRA/BioProject/BioSample data from DBCLS SRA API.
 - `01GEOjson2AOE.pl` Make subset of AOE tab file from extracted json file(s). 
 - `00getlistofxRX.pl` Get metadata from D/E/SRX (Experiment). 
+
+## From RNA-seq data not in GEO and ArrayExpress (DBCLS SRA API)
