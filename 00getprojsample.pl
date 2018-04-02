@@ -1,9 +1,8 @@
 #! /usr/bin/env perl
 # script to get GSE and related data from BioProject
 
-my $prj2gse = "prj2gse.json";
-unlink $prj2gse;
 my $rows = 1000;
+my $sleep = 1;
 my $apip = "IP.txt";
 
 # get IP of DBCLS SRA API
@@ -14,7 +13,7 @@ while(<FILE>) {
 }
 close FILE;
 
-open(FILE, "curl -s \"http://$ip/api/bioproject?external_db=GEO&rows=0\" |") or die; 
+open(FILE, "curl -s \"http://$ip/api/bioproject?external_db=GEO&rows=0\" |") or die "Cannot open API\n"; 
 while(<FILE>) {
 	chomp;
 	#$prjgsenum = $1 if(/(\d+) items/);
@@ -30,13 +29,12 @@ print STDERR "Iteration: $prjgsenum2 times\n";
 foreach my $i (0..$prjgsenum2) {
 	$start = $i*$rows;
 	print STDERR "$i..";
-	#open(FILE, "curl -s \"http://$ip/api/sra/experiment?library_strategy=RNA-Seq&start=$start&rows=$rows&data_type=full\" |") or die;
-	open(FILE, "curl -s \"http://$ip/api/bioproject?external_db=GEO&start=$start&rows=$rows&data_type=full\" |") or die;
+	open(FILE, "curl -s \"http://$ip/api/bioproject?external_db=GEO&start=$start&rows=$rows&data_type=full\" |") or die "Cannot open API\n";
 	# after the scraping, '\n' should be inserted by running the following command
         while(<FILE>) {
 		s/\{\"Package/\n\{\"Package/g;
                 print "$_\n";
         }
         close FILE;
-	sleep 5;
+	sleep $sleep;
 }

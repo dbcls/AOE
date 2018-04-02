@@ -10,8 +10,9 @@ while(<STDIN>) {
 	my $id   = $1 if(/\"ID\":\s+\{\"\$\":\s+\"([^\"]+)\"/); 
 	my $title = $1 if(/\"Title\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
 	my $organismname = $1 if(/\"OrganismName\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
+	my $accession = $1 if(/\"\@accession\":\s+\"([^\"]+)\"/);
 	my $submitted = $1 if(/\"\@submitted\":\s+\"([^\"]+)\"/);
 	my $method_type = $1 if(/\"\@method_type\":\s+\"([^\"]+)\"/);
 	my $datatype = $1 if(/\"\DataType\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
-	print "$id\t$organismname\t$title\t$method_type\t$datatype\t$submitted\n";
+	print "$accession\t$id\t$organismname\t$title\t$method_type\t$datatype\t$submitted\n";
 }
