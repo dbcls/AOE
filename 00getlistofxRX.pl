@@ -2,7 +2,7 @@
 # script to retrieve D/E/SRX metadata
 
 my $rows = 1000;
-my $sleep = 3;
+my $sleep = 1;
 my $apip = "IP.txt";
 
 open(FILE, "$apip") or die "Cannot open $apip\n";
