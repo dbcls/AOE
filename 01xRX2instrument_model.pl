@@ -6,6 +6,7 @@
 while(<STDIN>) {
 	chomp;
 	my $xrx = $1 if(/\"([DES]RX\d+)\"/); #xRX
-	my $inst_model = $1 if(/\"INSTRUMENT_MODEL\":\s+\"([^\"]+)\"/); #{"INSTRUMENT_MODEL": "Illumina Genome Analyzer IIx"}
-	print "$xrx\t$inst_model\n";
+	my $inst_model = $1 if(/\"INSTRUMENT_MODEL\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
+	my $bioproject = $1 if(/\"BioProject\",\s+\"\$\":\s+\"([^\"]+)\"/);  #"BioProject", "$": "PRJNA285604
+	print "$xrx\t$bioproject\t$inst_model\n";
 }
