@@ -14,5 +14,5 @@ while(<STDIN>) {
 	my $submitted = $1 if(/\"\@submitted\":\s+\"([^\"]+)\"/);
 	my $method_type = $1 if(/\"\@method_type\":\s+\"([^\"]+)\"/);
 	my $datatype = $1 if(/\"\DataType\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
-	print "$accession\t$id\t$organismname\t$title\t$method_type\t$datatype\t$submitted\n";
+	print "$accession\t$id\t$organismname\t$title\t$method_type\t$datatype\t$submitted\n" unless($accession eq '');
 }
