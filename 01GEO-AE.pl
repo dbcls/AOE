@@ -18,7 +18,7 @@ while(<STDIN>) {
 	chomp;
 	my($prj,$gse) = split(/\t/); 
 	unless(defined($gseinae{$gse})) {
-		print "$gse\t$_\n";
+		print "$_\n";
 	}
 }
 

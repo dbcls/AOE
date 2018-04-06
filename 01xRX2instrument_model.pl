@@ -3,10 +3,23 @@
 # STDOUT: xRX -> instrument_model (sequencer information)
 # extract xRX and INSTRUMENT_MODEL from xRX.json
 
+my $file = "SRA_Accessions.tab";
+
+open(FILE, $file) or die;
+while(<FILE>) {
+	chomp;	
+	my $prj = $1 if(/(PRJ\w\w\d+)/);	#PRJNA
+	if(/([DES]RX\d+)\t/) { #xRX
+		my $xrx = $1;
+		$prjof{$xrx} = $prj;
+	}
+}
+close FILE;
+
 while(<STDIN>) {
 	chomp;
 	my $xrx = $1 if(/\"([DES]RX\d+)\"/); #xRX
 	my $inst_model = $1 if(/\"INSTRUMENT_MODEL\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
-	my $bioproject = $1 if(/\"BioProject\",\s+\"\$\":\s+\"([^\"]+)\"/);  #"BioProject", "$": "PRJNA285604
-	print "$xrx\t$bioproject\t$inst_model\n";
+	#my $bioproject = $1 if(/\"BioProject\",\s+\"\$\":\s+\"([^\"]+)\"/);  #"BioProject", "$": "PRJNA285604
+	print "$xrx\t$prjof{$xrx}\t$inst_model\n";
 }
