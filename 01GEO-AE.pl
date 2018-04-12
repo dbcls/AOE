@@ -6,12 +6,12 @@ my $zcat = "/usr/bin/gzcat";
 open(FILE, "$zcat $aetab |") or die "Cannot open $aetab \n";
 while(<FILE>) {
 	chomp;
-	my $gse = '';
+	my $gse = 'NA';
 	my($prj,$aeid) = split(/\t/); 
 	if($aeid =~ /E\-GEOD\-(\d+)/)  {
 		$gse = 'GSE'.$1;	#print "$gse\n";
 		$gseinae{$gse} = $gse;
-	} else { next; }
+	}
 	if(s/^$prj\t$aeid\t/$prj\t$aeid\t$gse\t/) { # add GSE column
 		print "$_\n";
 	} else {
