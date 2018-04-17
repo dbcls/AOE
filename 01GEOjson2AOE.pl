@@ -31,18 +31,18 @@ while(<STDIN>) {
 #Proj    AE      Description     Date    ArrayType       ArrayGroup      Technology      Instrument      NGSGroup        Organisms       Rep_organism
 	print "$accession\t$id\t$title\t$submitted\t";
 	if($method_type eq 'eArray') {
-		print "NA\tNA\tarray assay\tNA\tNA\t";
+		print "Unknown_Array\tUnknown_Array\tarray assay\tNA\tNA\t";
 	} elsif ($method_type eq 'eSequencing') {
 		if(defined($inst_modelof{$accession})) { 
 			$inst_model = $inst_modelof{$accession};
-			if(($inst_model =~ /hiseq/i) || ($inst_model =~ /nextseq/i)) {
+			if(($inst_model =~ /hiseq/i) || ($inst_model =~ /nextseq/i) || ($inst_model =~/illumina/i)) {
 				$ngsgroup = "Illumina";
 			} else {
 				$ngsgroup = "Others_NGS";
 			}
 		} else {
 			$inst_model = 'NA';
-			$ngsgroup = "Others_NGS";
+			$ngsgroup = "Unknown_NGS";
 		}
 		print "NA\tNA\tsequencing assay\t$inst_model\t$ngsgroup\t";
 	} else {
