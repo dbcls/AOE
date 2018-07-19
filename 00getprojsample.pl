@@ -22,7 +22,7 @@ while(<FILE>) {
 close FILE;
 
 # calculating interation number
-my $prjgsenum2 = int ($prjgsenum/1000);
+my $prjgsenum2 = int ($prjgsenum/$rows);
 print STDERR "Iteration: $prjgsenum2 times\n";
 
 # iteration
