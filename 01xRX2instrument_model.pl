@@ -26,6 +26,7 @@ while(<STDIN>) {
 	chomp;
 	my $xrx = $1 if(/\"([DES]RX\d+)\"/); #xRX
 	my $inst_model = $1 if(/\"INSTRUMENT_MODEL\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
+	#my $lib_strate = $1 if(/\"LIBRARY_STRATEGY\":\s+\{\"\$\":\s+\"([^\"]+)\"/);
 	#my $bioproject = $1 if(/\"BioProject\",\s+\"\$\":\s+\"([^\"]+)\"/);  #"BioProject", "$": "PRJNA285604
 	print "$xrx\t$prjof{$xrx}\t$inst_model\n";
 }
