@@ -27,3 +27,4 @@ Output Example:
 ## From RNA-seq data not in GEO and ArrayExpress (DBCLS SRA API)
 
 - `01xRX2instrument_model.pl` Extract Instrument_model from SRA Experiment data.
+- `00getprojbyid.pl` Fetch BioProject JSON by IDs via DBCLS SRA API.
