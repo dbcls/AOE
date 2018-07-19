@@ -22,7 +22,7 @@ while(<FILE>) {
 close FILE;
 
 # calculating interation number
-my $num2 = int ($num/1000);
+my $num2 = int ($num/$rows);
 print STDERR "Iteration: $num2\n";
 
 foreach my $i (0..$num2) { # modify the number 
