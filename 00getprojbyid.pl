@@ -4,7 +4,7 @@
 # STDOUT: API output
 # usage: perl 00getprojbyid.pl < id_list_unique.txt | pigz -c > out.json.gz
 
-my $rows = 100;
+my $rows = 1000;
 my $sleep = 1;
 my $i = 0;
 my $apip = "IP.txt";
