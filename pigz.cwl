@@ -7,5 +7,5 @@ inputs:
     inputBinding:
       position: 0
 outputs:
-  counts: stdout
+  compressed: stdout
 stdout: prj2gse.json.gz

@@ -4,13 +4,13 @@ baseCommand: perl
 requirements:
   InitialWorkDirRequirement:
     listing:
-      - $(inputs.datafile)
+      - $(inputs.ipfile)
 inputs:
   file:
     type: File
     inputBinding:
       position: 0
-  datafile:
+  ipfile:
     type: File
     default: IP.txt
 outputs:

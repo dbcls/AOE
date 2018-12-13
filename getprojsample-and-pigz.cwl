@@ -1,27 +1,27 @@
 cwlVersion: v1.0
-# cwltool getprojsample-and-pigz.cwl --file 00getprojsample.pl --datafile IP.txt
+# cwltool getprojsample-and-pigz.cwl --file 00getprojsample.pl --ipfile IP.txt
 class: Workflow
 inputs:
   file:
     type: File
     inputBinding:
       position: 0
-  datafile:
+  ipfile:
     type: File
     default: IP.txt
 outputs:
-  counts:
+  compressed:
     type: File
-    outputSource: pigz/counts
+    outputSource: pigz/compressed
 steps:
   getprojsample:
     run: perl-getprojsample.cwl
     in:
       file: file
-      datafile: datafile
+      ipfile: ipfile
     out: [results]
   pigz:
     run: pigz.cwl
     in:
       file: getprojsample/results
-    out: [counts]
+    out: [compressed]
