@@ -8,4 +8,4 @@ inputs:
       position: 0
 outputs:
   compressed: stdout
-stdout: prj2gse.json.gz
+stdout: gethoge-out.gz
