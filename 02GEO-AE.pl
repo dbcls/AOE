@@ -1,7 +1,7 @@
 #! /usr/bin/env perl
 
 my ($aetab) = shift(@ARGV);
-my $zcat = "/usr/bin/gzcat";
+my $zcat = "pigz -dc";
 
 open(FILE, "$zcat $aetab |") or die "Cannot open $aetab \n";
 while(<FILE>) {
