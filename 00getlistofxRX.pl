@@ -1,7 +1,10 @@
 #!/usr/bin/perl
 # script to retrieve D/E/SRX metadata
-
-my $rows = 1000;
+# JSON version
+# Hidemasa Bono
+ 
+my $rows = 10000;
+my $num2 = 9999999;
 my $sleep = 1;
 my $apip = "IP.txt";
 
@@ -12,27 +15,15 @@ while(<FILE>) {
 }
 close FILE;
 
-# counting the number of rows
-open(FILE, "curl -s \"http://$ip/api/sra/experiment?library_strategy=%22RNA-Seq%22&rows=0\" |") or die;
-while(<FILE>) {
-	chomp;
-	#$num = $1 if(/(\d+) items/);
-	$num = $1 if(/\"numFound\": (\d+)/);
-}
-close FILE;
-
-# calculating interation number
-my $num2 = int ($num/$rows);
-print STDERR "Iteration: $num2\n";
-
-foreach my $i (0..$num2) { # modify the number 
-	$start = $i*$rows;
+# example: http://xx.xx.xx.xx/api/sra/search?library_strategy=RNA-seq&start=1&rows=1
+foreach my $i (1..$num2) { # modify the number 
 	print STDERR "$i..";
-	open(FILE, "curl -s \"http://$ip/api/sra/experiment?library_strategy=%22RNA-Seq%22&start=$start&rows=$rows&data_type=full\" |") or die;
-        while(<FILE>) {
-		s/\{\"EXPERIMENT\"/\n\{\"EXPERIMENT\"/g;
-		print "$_\n";
-	}
+	open(FILE, "curl -s \"http://$ip/api/sra/search?library_strategy=RNA-seq&start=$i&rows=$rows\" |") or die "$!:$file\n";
+	while(<FILE>) {
+		exit 0 unless(/\[\{\"EXPERIMENT\":/);
+		s/\{\"EXPERIMENT\":/\n\{\"EXPERIMENT\":/g;
+                print "$_";
+        }
 	close FILE;
 	sleep $sleep;
 }
