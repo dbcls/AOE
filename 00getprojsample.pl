@@ -22,8 +22,8 @@ foreach my $i (1..$prjgsenum2) {
 	open(FILE, "curl -s \"http://$ip/api/bioproject/search?external_db=GEO&start=$i&rows=$rows\" |") or die "Cannot open API\n";
 	# after the scraping, '\n' should be inserted by running the following command
         while(<FILE>) {
-                exit 0 unless(/\[\{\"Package\":/);
-                s/\{\"Package\":/\n\{\"Package\":/g;
+                exit 0 unless(/\[\{\"bioproject\":/);
+                s/\{\"bioproject\":/\n\{\"bioproject\":/g;
                 print "$_";
         }
         close FILE;
