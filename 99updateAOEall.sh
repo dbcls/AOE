@@ -32,11 +32,10 @@ scp xRX2instrument_model.txt.gzgw.ddbj.nig.ac.jp:AOE/
 # cd AOE; sh update_aoe2.sh
 
 # copy back to local machine
-scp gw.ddbj.nig.ac.jp:AOE/AOE2-tab.txt.gz AOE2-tab190905.txt.gz
+scp gw.ddbj.nig.ac.jp:AOE/AOE2-tab.txt.gz .
 
 # populate the information
-sh 02GEOjson2AOE.sh AOE2-tab190905.txt.gz | pigz -c > AOE2-tab2.190905.txt.gz
-ln -s AOE2-tab2.190905.txt.gz AOE2-tab2.txt.gz
+sh 02GEOjson2AOE.sh AOE2-tab.txt.gz | pigz -c > AOE2-tab2.txt.gz
 
 ### level3
 # get entries not in GEO but in SRA (RNA-seq)
