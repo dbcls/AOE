@@ -4,12 +4,16 @@
 #
 # Run on dtn4 for accesssing FTP directories
 
+aoedir=/home/bono/AOE
+github=/home/bono/AOE/AOE
+
 ### level1&2
-# FTP get from AE
+# FTP get from AE 
+
 
 # get RNA-seq entries in SRA using DBCLS SRA API
 # to produce xRX.json.gz
-sh 00getlistofxRX.sh 
+cd ${github}; sh 00getlistofxRX.sh 
 
 # fetch data in GEO using DBCLS SRA API
 # to produce prj2gse.json.gz and PRJ2GSE.txt.gz
@@ -27,20 +31,18 @@ sh 01xRX2instrument_model.sh
 
 # copy PRJ2GSE.txt.gz & xRX2instrument_model.txt.gz to ddbj sc
 #scp PRJ2GSE.txt.gz gw.ddbj.nig.ac.jp:AOE/
-mv PRJ2GSE.txt.gz ~/AOE/
-#scp xRX2instrument_model.txt.gz gw.ddbj.nig.ac.jp:AOE/
-mv xRX2instrument_model.txt.gz ~/AOE/
+mv PRJ2GSE.txt.gz ${aoedir}
+cp xRX2instrument_model.txt.gz ${aoedir}
 
 ## In DDBJ sc, run
-cd ~/AOE; sh update_aoe2.sh
+cd ${aoedir}; sh update_aoe2.sh
 
 # copy back to local machine
 #scp gw.ddbj.nig.ac.jp:AOE/AOE2-tab.txt.gz .
-cp ~/AOE/AOE2-tab.txt.gz ~/AOE/AOE/
+cp ${aoedir}/AOE2-tab.txt.gz ${github}
 
 # populate the information
-cd ~/AOE/AOE
-sh 02GEOjson2AOE.sh AOE2-tab.txt.gz > AOE2-tab2.txt
+cd ${github}; sh 02GEOjson2AOE.sh AOE2-tab.txt.gz > AOE2-tab2.txt
 
 ### level3
 # get entries not in GEO but in SRA (RNA-seq)
