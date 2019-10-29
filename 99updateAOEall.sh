@@ -1,7 +1,8 @@
 #!/bin/sh
-#
 # update AOE index
+# By Hidemasa Bono <bono@dbcls.rois.ac.jp>
 #
+# Run on dtn4 for accesssing FTP directories
 
 ### level1&2
 # FTP get from AE
@@ -19,7 +20,7 @@ sh 00parseprjgse.sh
 
 # get SRA_Accessions.tab & compress
 lftp -c 'open ftp.ncbi.nlm.nih.gov/sra/reports/Metadata && pget -n 8 SRA_Accessions.tab'
-pigz SRA_Accessions.tab
+gzip SRA_Accessions.tab
 
 # extract instrument model to produce xRX2instrument_model.txt.gz
 sh 01xRX2instrument_model.sh
