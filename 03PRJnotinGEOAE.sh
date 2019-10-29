@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # extract bioprjID from SRA not in GEOAE 
-pigz -dc xRX2instrument_model.txt.gz \
+gzip -dc xRX2instrument_model.txt.gz \
 | cut -f2 \
 | grep ^PRJ \
 | sort -u \

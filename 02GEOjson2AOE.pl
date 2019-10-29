@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 # script to extract description about entries from retrieved GEO json for AOE 
 
-my $zcat = "/usr/bin/gzcat";
+my $zcat = "zcat";
 $xRX2instrument_f = "xRX2instrument_model.txt.gz";
 
 # instrument: xRX2instrument_model.txt.gz

@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-my $zcat = "/usr/bin/gzcat";
+my $zcat = "zcat";
 $xRX2instrument_f = "xRX2instrument_model.txt.gz";
 
 # instrument: xRX2instrument_model.txt.gz
