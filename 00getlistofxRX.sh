@@ -3,4 +3,4 @@
 
 # scraping
 perl 00getlistofxRX.pl \
-| pigz -c > xRX.json.gz
+| gzip -c > xRX.json.gz

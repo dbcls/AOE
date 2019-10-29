@@ -3,4 +3,4 @@
 
 # scraping
 perl 00getprojsample.pl \
-| pigz -c > prj2gse.json.gz
+| gzip -c > prj2gse.json.gz
