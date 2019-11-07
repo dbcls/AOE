@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AOE 登録データリスト</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/tabulator.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/3.3.1/js/tabulator.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script src="js/facet_data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="https://dbcls.rois.ac.jp/DBCLS-common-header-footer/common-header-and-footer/style/common-header-and-footer.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+<body style="padding-top: 24px;">
+    <header style="z-index:9999;position:fixed;top:0;left:0;width:100%;height:24px;background:linear-gradient(#004098, #1B2244);"></header>
+
+    <div id="container">
+        <service_header></service_header>
+        <div id="main" class="result">
+            <div class="content">
+                <!-- Trends section -->
+
+                <form_set></form_set>
+                <result-table></result-table>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type="riot/tag" src="js/service_header.tag"></script>
+    <script type="riot/tag" src="js/result_table.tag"></script>
+    <script type="riot/tag" src="js/form_set.tag"></script>
+    <script src="https://cdn.jsdelivr.net/npm/riot@3.7/riot+compiler.min.js"></script>
+    <script>
+        var params = {qs: ''};
+        riot.mount('*', {
+            obs: riot.observable()
+        })
+
+        var lang = window.location.pathname;
+        if (lang == '/en') {
+            $("html").attr("lang", 'en');
+        }else{
+            $("html").attr("lang", 'ja');
+        }
+    </script>
+    <script type="text/javascript" src="https://dbcls.rois.ac.jp/DBCLS-common-header-footer/common-header-and-footer/script/common-header-and-footer.js"></script>
+
+</body>
+</html>
