@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        AOE: 登録データ件数ランキング
+    </title>
+    <meta name="description" content="DBCLS AOE, All Of gene Expression, supports to find gene expression data.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/popover.css">
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/crossfilter.min.js"></script>
+    <script src="/js/mychart.js"></script>
+    <script type="text/javascript" src="/js/togo_picture.js"></script>
+
+    <link rel="stylesheet" href="https://dbcls.rois.ac.jp/DBCLS-common-header-footer/common-header-and-footer/style/common-header-and-footer.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+<body style="padding-top: 24px;">
+<header style="z-index:9999;position:fixed;top:0;left:0;width:100%;height:24px;background:linear-gradient(#004098, #1B2244);"></header>
+
+<service_header></service_header>
+
+<div id="main">
+    <div class="container">
+        <div id="section0" class="clearfix"></div>
+        <static_main></static_main>
+        <static_assay></static_assay>
+    </div>
+</div>
+
+<script type="riot/tag" src="js/service_header.tag"></script>
+<script type="riot/tag" src="js/static_main.tag"></script>
+<script type="riot/tag" src="js/static_assay.tag"></script>
+<script src="https://cdn.jsdelivr.net/npm/riot@3.7/riot+compiler.min.js"></script>
+<script src="/js/route.min.js"></script>
+
+<script>
+    var ymdformat = d3.time.format("%Y-%m-%d");
+    var margin = {top: 30, right: 10, bottom: 40, left: 55}, padding = {top: 10, right: 10, bottom: 30, left: 40},
+        width1 = 430, height1 = 220 - padding.bottom - padding.top, width2 = 430, height2 = 125,
+        width3 = 200, height3 = 450,
+        radius = Math.min(width3, height3) / 5;
+    //var color = d3.scale.category10();
+    var colorList = ["#DD421D", "#e58752", "#efad16", "#e9de0d", "#aac40e", "#76b711", "#008f7c", "#237891", "#546b91", "#727080", "#9999a0"];
+    var color1 = d3.scale.ordinal()
+        .range(colorList);
+
+    var color2 = d3.scale.ordinal()
+        .range(colorList)
+        .domain([0, 9]);
+
+    var barColor = "steelblue";
+        //日本語-英語の切り替え
+    var lang = window.location.pathname;
+    var txt_a1;
+    //var txt_m1;この変数は削除
+    var padding_sbtn;
+    var padding_mybtn;
+    var url_mylist = "";
+    var url_mychart = "";
+    var h2_s0 = "";
+    var h2_s0_ken = ";";
+    var chart_label_1 = "";
+    var chart_label_2 = "";
+    var url_exp = "";
+    if (lang == '/en') {
+        txt_a1 = "Retrieve";
+        //txt_m1 = "Turn off the result";
+        padding_sbtn = 95;
+        padding_mybtn = 85;
+        url_mylist = './en/experiment';
+        url_mychart = '/api/mychart';
+        url_exp = 'en/experiment';
+        h2_s0 = ': Search result';
+        h2_s0_ken = ' items';
+        chart_label_1 = 'Number of data';
+        chart_label_2 = 'Cumulative number';
+        document.title = 'AOE - Registered data ranking';
+        $("html").attr("lang", 'en');
+    } else {
+        txt_a1 = "選択した項目でリストを表示";
+        //txt_m1 = "検索結果をクリアする";
+        padding_sbtn = 30;
+        padding_mybtn = 35;
+        url_mylist = 'experiment';
+        url_mychart = '/api/mychart';
+        h2_s0 = 'の検索結果';
+        h2_s0_ken = '件';
+        chart_label_1 = 'データ登録件数';
+        chart_label_2 = '種別累積データ件数';
+        url_exp = 'experiment';
+        $("html").attr("lang", 'ja');
+    }
+
+    //pie chartの半径
+    var r1 = 100;
+    //検索対象期間
+    var sp = "";
+    //選択された生物名
+    var nm = [];
+    //"others"が選択されたとき選択されなかった生物名
+    var nmotr = [];
+    //brushされた期間
+    var sd_extent = [];
+    //生物名クエリの"others"フラグ
+    var others = "";
+
+    var params = {qs: ''};
+    riot.mount('*', {
+        obs: riot.observable()
+    });
+</script>
+<script type="text/javascript" src="https://dbcls.rois.ac.jp/DBCLS-common-header-footer/common-header-and-footer/script/common-header-and-footer.js"></script>
+
+
+</body>
+</html>

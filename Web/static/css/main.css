@@ -1,0 +1,869 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #052945;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+    background-color: #EFEFEF;
+    font-family: Helvetica, Arial, FreeSans, "Liberation Sans", "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","メイリオ",Meiryo,Arial sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+.container{
+    margin: 0 40px;
+    padding: 0;
+
+}
+.container p{
+    font-size: 1.2rem;
+}
+#header {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    margin: 0 15px 0 20px;
+    padding: 0;
+    height: 120px;
+    min-width: 1120px;
+
+}
+#header .container{
+    position: relative;
+    top: 20px;
+
+}
+#header .container h1{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 250px;
+    font-size: 1.8rem;
+    font-family: Verdana, "ヒラギノ角ゴ ProN W6","HiraKakuProN-W6","メイリオ",Meiryo, sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    color: #052945;
+    margin: 0;
+    float: left;
+}
+#header .container .search{
+    position: relative;
+    top: 10px;
+    right: 15px;
+    height: 30px;
+    float: right;
+    text-align: right;
+    width: 350px;
+ }
+#header .search input {
+
+	background-color: #fefefe;
+	border: 1px solid #999;
+	padding: 2px 0 0 2px;
+    height: 20px;
+	font-size: 1.2rem;
+    width: 200px;
+}
+#header input.btn{
+    margin-top: 0;
+    margin-left: 2px;
+    width: 80px;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    padding: 3px 10px;
+    height: 24px;
+    color: #fff;
+    background-color:#024b96;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+#header input.btn:hover {
+    background-color: #012d5a;
+    color: #ddd;
+}
+
+#switch_lang{
+    position: relative;
+    top: 10px;
+    right: 0px;
+    width: 75px;
+    height: 25px;
+    float: right;
+
+}
+#switch_lang button{
+    width: 75px;
+    height: 24px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px  #024b96;
+    color: #024b96;
+    transition: all .3s;
+}
+#header #switch_lang button:hover{
+    border: solid 1px #488EC4;
+    background-color: #488EC4;
+    color: #ffffff;
+}
+
+#menu{
+    position: relative;
+    top: 20px;
+    height: 29px;
+    border-bottom: solid 3px #024b96;
+    clear: left;
+}
+#menu a{
+    display: block;
+    width: 150px;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    float: left;
+    text-decoration: none;
+    border-left: solid 1px #ffffff;
+    color: #34678E;
+    transition: all .2s;
+}
+#menu a:hover{
+    color: #ffffff;
+    background-color: #488EC4;
+    border-left: solid 1px #024b96;
+}
+#header #menu a.selected{
+    color: #ffffff;
+    background-color: #488EC4;
+    border: none;
+}
+#main{
+    position: relative;
+    top: 0;
+    background-color: #ffffff;
+    margin: 0 15px 0 20px;
+    padding: 0;
+    min-width: 1120px;
+    clear: left;
+}
+
+#main .container{
+    position: relative;
+    top: 0;
+}
+#filter{
+    position: relative;
+    top: 0;
+    padding-top: 15px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    opacity: 0.2;
+}
+#filter p{
+    color: #052945;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+#filter .select1{
+    width: 285px;
+    float: left;
+}
+#filter .select2{
+    width: 165px;
+    float: left;
+}
+
+#filter input.btn{
+    margin-top: 5px;
+    width: 140px;
+    font-size: 1.2rem;
+    border-radius: 2px;
+    padding: 4px 10px;
+    color: #ffffff;
+    background-color:#024b96 ;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+#filter input.btn:hover{
+    background-color: #012d5a;
+    color: #ddd;
+}
+#main #info, #main #info_b{
+    position: relative;
+    top: 0;
+    font-size: 1.2rem;
+    height: 25px;
+    clear: both;
+}
+#main #info .pkz, #info_b{
+    color: #488EC4;
+    text-decoration: underline;
+/*
+    text-decoration-color: #488EC4;
+    text-decoration-skip: spaces;
+    -webkit-text-decoration-skip: spaces;
+*/
+}
+#main #info .pagination, #info_b .pagination{
+    padding: 0;
+    margin: 0;
+}
+#main #info .pagination li, #info_b .pagination li{
+    font-size: 1.2rem;
+    float: left;
+    margin-right: 10px;
+    margin-top: 0;
+    padding: 0;
+}
+#main #info .pagination ul, #info_b ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.pagination li a{
+    color: #488EC4;
+}
+.pagination li a:hover, .pagination li a:visited{
+    color: #052945;
+}
+#main #info .pager, #info_b .pager{
+    position: relative;
+    top: 0;
+    width: 33%;
+    padding: 0;
+    float: left;
+}
+#main .pager .pagination{
+    padding: 0;
+    margin: 0;
+}
+#main #info .expnumber, #info_b .expnumber{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+#main .list{
+    position: relative;
+    top: 0;
+    left: 0;
+    clear: both;
+}
+#main .list th a{
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+/* table style of experiments list */
+table.experiment{
+    border-spacing: 0px;
+    width: 100%;
+    height: 100%;
+
+}
+table.experiment tr th, table.experiment tr td{
+    font-size: 1.2rem;
+    border-bottom: 1px solid #cccccc;
+    padding: 3px 5px 3px 5px;
+    line-height: 1.6;
+}
+table.experiment tr th{
+    background-color: #DFE7ED;
+    text-align: left;
+    padding: 4px;
+    line-height: 1.8;
+}
+table.experiment tr:nth-child(2n){
+    background-color: #FCFCFC;
+}
+table.experiment tr:nth-child(2n+1){
+    background-color: #EDEDED;
+}
+table.experiment tr:nth-child(1){
+    background-color: #FCFCFC;
+}
+table.experiment tr td a{
+    color: #488EC4;
+}
+table.experiment tr td a:visited,table.experiment tr td a:hover {
+    color: #052945;
+}
+table.experiment th a{
+    color: #052945;
+}
+table.experiment th a.selected{
+    color : #488EC4;
+}
+#main .alrt{
+    font-size: 1.4rem;
+    width: 100%;
+    text-align: center;
+}
+#footer{
+    position: relative;
+    height: 160px;
+    margin: 0 15px 0 20px;
+    padding: 0;
+    background-color: #ffffff;
+    min-width: 1120px;
+}
+#footer .container{
+    position: relative;
+    top: 60px;
+    width: 950px;
+    text-align: center;
+    margin: 0 auto;
+}
+#footer h2{
+    width: 710px;
+    text-align: center;
+    margin:0 auto;
+    font-family: Verdana, "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","メイリオ",Meiryo, sans-serif;
+    font-size: 1.2rem;
+    color: #222222;
+}
+#footer a{
+    color: #488EC4;
+}
+#footer a img{
+    border: none;
+    vertical-align: -2px;
+}
+#footer .logo_c{
+    width: 125px;
+    float: left;
+    margin-left: 50px;
+}
+#footer .cc{
+    width: 710px;
+    margin-top: 24px;
+    float: left;
+}
+.container .note{
+    height: 100px;
+}
+.note ul li{
+    font-size: 1.2rem;
+    list-style-type: none;
+    line-height: 1.6;
+}
+.nete table{
+    width:75%;
+    border-collapse: collapse;
+}
+.note table td{
+    padding: 4px;
+    border: 1px solid #888888;
+}
+.fm{
+    padding: 10px 0;
+}
+/*
+bar chart style
+*/
+
+
+::-webkit-input-placeholder{
+    color: #888888;
+}
+:-moz-placeholder {
+    color: #888888;
+}
+
+/* ==========================================================================
+   styles for trends
+   ========================================================================== */
+.container.trends{
+    position: relative;
+    height: 550px;
+    clear: both;
+}
+#section0{
+    width: 100%;
+}
+#section1{
+    width: 100%;
+    clear: both;
+}
+#section2{
+    width: 100%;
+    clear: both;
+    margin-top: 15px;
+}
+.container .sub-header{
+    width: 100%;
+    height: 45px;
+}
+#sub-header0 .nod{
+    margin-left: 20px;
+}
+#sub-header2,
+#sub-header1,
+#sub-header0{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+}
+#sub-header2 h2,
+#sub-header1 h2,
+#sub-header0 h2{
+    height: 35px;
+    float: left;
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
+#sub-header2 .info,
+#sub-header1 .info,
+#sub-header0 .info{
+    height: 35px;
+    float: right;
+}
+
+#section2 .dashboard,
+#section1 .dashboard,
+#section0 .dashboard{
+    border: solid 1px #888;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+.dashboard .charts,
+.dashboard .pie,
+.dashboard .ranking{
+    overflow: hidden;
+    float: left;
+}
+
+.dashboard .ranking .org_name{
+    position: relative;
+    left: 10px;
+    width: 180px;
+    display: inline-block;
+}
+
+.dashboard .ranking .org_num{
+    position: relative;
+    width: 55px;
+    display: inline-block;
+}
+
+.dashboard .ranking .org_rank{
+    position: relative;
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    border-radius: 2px;
+}
+
+#section1 .dashboard .pie{
+    width: 280px;
+    height: 480px;
+}
+#section1 .dashboard .ranking{
+    width: 320px;
+    cursor: pointer;
+    font-size: 12px;
+}
+#section1 .dashboard .ranking img[src=""]{
+    display: none;
+}
+
+#section1 .ranking a{
+    color: #024b96;
+}
+.ranking button{
+    padding: 4px;
+    margin-left: 0px;
+}
+#o10{
+    overflow: hidden;
+}
+#o10 ul,
+ul#ranking_lst{
+    -webkit-padding-start: 0;
+    -moz-padding-start: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#section1 .dashboard .charts{
+    width: 430px;
+    height: 495px;
+}
+#section1 #ranking_lst li{
+    height: 45px;
+}
+#section1 #o10 li{
+    height:35px;
+}
+
+#section1 .note{
+    margin-top: 16px;
+    height: 50px;
+}
+#section1 .note a{
+    color: #222222;
+}
+
+
+#sub-header2 h2 i,
+#sub-header1 h2 i,
+#sub-header0 h2 i{
+    vertical-align: -3px;
+}
+
+.histogram .chart{
+    cursor: col-resize;
+}
+
+.histogram .chart text {
+    font-size: 1rem;
+}
+
+#section2 .histogram .chart{
+    cursor: auto;
+}
+.histogram{
+    width: 475px;
+    height: 250px;
+    margin-bottom: 4px;
+    float: left;
+}
+#section2 div.charts{
+    width: 100%;
+    height: 400px;
+}
+#section2 #histogram_assay_1.histogram{
+    width: 425px;
+    height: 380px;
+}
+#section2 #histogram_assay_2.histogram{
+    width: 400px;
+    height: 380px;
+}
+#section2 #ranking_assay{
+    width: 200px;
+    height: 380px;
+}
+.cu{
+    width: 430px;
+    float: left;
+    height: 200px;
+}
+
+.description{
+    float: left;
+    height: 485px;
+    padding-top: 25px;
+}
+
+#section0 #mychart{
+    height: 340px;
+    width: 100%;
+    margin-bottom: 30px;
+    padding-top: 10px;
+
+}
+#mychart svg.chart{
+    width: 100%;
+    height: 330px;
+}
+path {  stroke: #fff; }
+.axis text{
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    stroke: none;
+    fill: black;
+}
+.axis line,
+.axis path{
+    fill: none;
+    stroke: #444;
+    stroke-width: 2px;
+    shape-rendering: crispEdges;
+}
+/* brushing */
+.chart rect.rct{
+    stroke: white;
+    fill: steelblue;
+}
+.chart .selecting g.selected rect{
+    sroke: #880000;
+    fill: steelblue;
+    fill-opacity: 1;
+}
+.chart .selecting g rect{
+    fill: steelblue;
+    fill-opacity: 0.25
+}
+.chart g.selecting g.brush .extent{
+    stroke: #fff;
+    fill-opacity: 0.1;
+    /*shape-rendering: crispEdges;*/
+    cursor: move;
+}
+g.brush g.e rect{
+    cursor:e-resize;
+}
+g.brush g.w rect{
+    cursor:w-resize;
+}
+.ranking g.btns,
+.composition g.btns{
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+.clearfix{display: inline-block}
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
+
+/* form set tag style */
+#search_aoe{
+    font-size: 1.25rem;
+}
