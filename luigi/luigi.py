@@ -16,7 +16,9 @@ parser.add_argument('-o', '--output', default='ranking.json', help='output file 
 parser.add_argument('-r', '--rows', default=100, help='out put ranking number')
 args = parser.parse_args()
 GET_NUM = 100
-OUT_PUT = "/Users/oec/Documents/Icebox/data/T-TPM_run_ranking.json"
+
+# 出力パスを入力
+OUT_PUT = ""
 
 
 def main(f, rows):
