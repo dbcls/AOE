@@ -45,12 +45,10 @@ def main(f, rows):
 
     # fileに出力する場合
     export_ranking(ranking)
-    print("export runking done")
 
     # sqliteに出力する場合
     # store_ranking(ranking)
 
-    return ranking
 
 
 def sort(l):
@@ -127,13 +125,4 @@ def calc(input_f):
     return similarity, names
 
 
-# testデータのT-TPM-100.txtは 縦軸（行）がRUN ID,横軸（カラム）がRefSeq IDの発現量の値（TPM）
-# calc()は行（RUN）どうしの類似性の値をベクトルとして返す。
-# [['RUN ID', int,int,,,,],, ]
-
-# 呼び出す時は
-# 例）
-# python luigi.py data/T-TPM-100.txt -r 2
-# python luigi.py <input file name> -o <out put file, option> -r < output ranking number, option>
-
-# main()
+main()
