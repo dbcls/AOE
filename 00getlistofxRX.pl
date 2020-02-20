@@ -18,7 +18,7 @@ close FILE;
 # example: http://xx.xx.xx.xx/api/sra/search?library_strategy=RNA-seq&start=1&rows=1
 foreach my $i (1..$num2) { # modify the number 
 	print STDERR "$i..";
-	my $url = "http://$ip/api/bioproject/search?external_db=GEO\&start=$i\&rows=$rows";
+	my $url = "http://$ip/api/sra/search?library_strategy=RNA-seq\&start=$i\&rows=$rows";
         #print STDERR "$url\n";
         open(FILE, "curl -s \"$url\" |") or die "Cannot open API\n";
 	while(<FILE>) {
