@@ -11,14 +11,13 @@ import sys
 #tblname = "human_fantom5_ranking"
 
 parser = argparse.ArgumentParser()
-# parser.add_argument('input', help='input file path')
+parser.add_argument('input', help='input file path')
 parser.add_argument('-o', '--output', default='ranking.json', help='output file path')
 parser.add_argument('-r', '--rows', default=100, help='out put ranking number')
 args = parser.parse_args()
 GET_NUM = 100
 
 # 出力パスを入力
-OUT_PUT = ""
 
 
 def main(f, rows):
@@ -77,7 +76,7 @@ def create_ranking(ids,val_s,idx_s):
 
 def export_ranking(d):
     # output_file = args.output
-    output_file = OUT_PUT
+    output_file = output_f
     with open(output_file, "w") as f:
         json.dump(d, f)
 
@@ -127,4 +126,9 @@ def calc(input_f):
     return similarity, names
 
 
-main()
+args = parser.parse_args()
+input_f = args.input
+output_f = args.output
+rows = args.rows
+
+main(input_f, rows)
