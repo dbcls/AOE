@@ -50,8 +50,6 @@ def main(f, rows):
     # sqliteに出力する場合
     # store_ranking(ranking)
 
-
-
 def sort(l):
     # listを降順にソートし、ソートした値のインデックスを取得
     value_sorted = np.sort(l)[::-1]
@@ -78,7 +76,7 @@ def export_ranking(d):
     # output_file = args.output
     output_file = output_f
     with open(output_file, "w") as f:
-        json.dump(d, f)
+        json.dump(d, f, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))
 
 
 def get_index(name):
