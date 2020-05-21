@@ -14,12 +14,12 @@ while(<FILE>) {
 }
 close FILE;
 
-#api/bioproject/search?external_db=GEO&start=1&rows=10
+# api/search/full/bioproject?external_db=GEO
 
 # iteration
 foreach my $i (1..$prjgsenum2) {
 	print STDERR "$i..";
-	open(FILE, "curl -s \"http://$ip/api/bioproject/search?external_db=GEO&start=$i&rows=$rows\" |") or die "Cannot open API\n";
+	open(FILE, "curl -s \"http://$ip/api/search/full/bioproject?external_db=GEO&start=$i&rows=$rows\" |") or die "Cannot open API\n";
 	# after the scraping, '\n' should be inserted by running the following command
         while(<FILE>) {
                 exit 0 unless(/\[\{\"bioproject\":/);

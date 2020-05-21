@@ -3,8 +3,8 @@
 
 # run
 
-pigz -dc xRX.json.gz \
+gzip -dc xRX.json.gz \
 | perl 01xRX2instrument_model.pl \
-| pigz -c \
+| gzip -c \
 > xRX2instrument_model.txt.gz
 

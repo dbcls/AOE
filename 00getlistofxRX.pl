@@ -16,9 +16,10 @@ while(<FILE>) {
 close FILE;
 
 # example: http://xx.xx.xx.xx/api/sra/search?library_strategy=RNA-seq&start=1&rows=1
+# http://dbcls-sra-dev.bhx.jp/api/search/full/sra?library_strategy=RNA-seq&rows=10&start=1
 foreach my $i (1..$num2) { # modify the number 
 	print STDERR "$i..";
-	my $url = "http://$ip/api/sra/search?library_strategy=RNA-seq\&start=$i\&rows=$rows";
+	my $url = "http://$ip/api/search/full/sra?library_strategy=RNA-seq\&start=$i\&rows=$rows";
         #print STDERR "$url\n";
         open(FILE, "curl -s \"$url\" |") or die "Cannot open API\n";
 	while(<FILE>) {

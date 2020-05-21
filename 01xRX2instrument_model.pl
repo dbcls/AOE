@@ -3,7 +3,8 @@
 # STDOUT: xRX -> instrument_model (sequencer information)
 # extract xRX and INSTRUMENT_MODEL from xRX.json
 
-my $zcat = "pigz -cd"; 
+#my $zcat = "pigz -cd"; 
+my $zcat = "gzip -cd";
 
 # SRA_Accessions.tab from NCBI retrieved by
 # lftp -c 'open ftp.ncbi.nlm.nih.gov/sra/reports/Metadata && pget -n 8 SRA_Accessions.tab'
