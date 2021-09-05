@@ -8,7 +8,7 @@ gzip -dc xRX2instrument_model.txt.gz \
 > bioprj_SRA.txt
 
 # extract bioprjID from AOE2 set
-zgrep ^PRJ AOE2-tab2.txt.gz \
+grep ^PRJ AOE2-tab2.txt \
 | cut -f 1 \
 | sort -u \
 > bioprj_AOE2.txt
