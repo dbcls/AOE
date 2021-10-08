@@ -28,6 +28,7 @@ sh 00parseprjgse.sh
 echo "getting SRA_Accessions.tab"
 #lftp -c 'open ftp.ncbi.nlm.nih.gov/sra/reports/Metadata && pget -n 8 SRA_Accessions.tab'
 curl -O https://ftp.ncbi.nlm.nih.gov/sra/reports/Metadata/SRA_Accessions.tab
+rm -f SRA_Accessions.tab.gz
 gzip SRA_Accessions.tab
 
 # extract instrument model to produce xRX2instrument_model.txt.gz
