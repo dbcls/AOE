@@ -13,11 +13,8 @@ my $file = "xRX.json.gz";
 
 while(<STDIN>) {
 	chomp;	
-	my $prj = $1 if(/(PRJ\w\w\d+)/);	#PRJNA
-	if(/([DES]RX\d+)\t/) { #xRX
-		my $xrx = $1;
-		$prjof{$xrx} = $prj;
-	}
+	my($xrx, $prj)=split(/\t/);
+	$prjof{$xrx} = $prj;
 }
 
 open(FILE, "$zcat $file |") or die;
